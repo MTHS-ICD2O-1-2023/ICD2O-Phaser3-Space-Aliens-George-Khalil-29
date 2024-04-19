@@ -23,7 +23,7 @@
    *    before preload() and create().
    *  @param {object} data - Any data passed via ScenePlugin.add() or ScenePlugin.start().
    */
-  Init(data) {
+  init(data) {
     this.cameras.main.setBckgroundColor("ffffff")
   }
 
