@@ -36,7 +36,7 @@
   }
 
   /**
-   * Can be defind on your own Scene. 
+   * Can be defied on your own Scene. 
    * Use it to create your game objects.
    * @param {object} data - Any data passed via ScenePlugin.add() or ScenePlugin.start().
    */
