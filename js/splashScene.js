@@ -15,10 +15,11 @@
    */
   constructor() {
     super({ key: "splashScene" })
+    this.SplashSceneBackgroundImage = null 
   }
 
   /**
-   * Can be defind on your own Scenes. 
+   * Can be defined on your own Scenes. 
    * This method is called by the Scene Manager when the scene starts, 
    *    before preload() and create().
    *  @param {object} data - Any data passed via ScenePlugin.add() or ScenePlugin.start().
@@ -28,11 +29,12 @@
   }
 
   /**
-   * Can be defind on your own Scene.
+   * Can be defined on your own Scene.
    * Use it to load assets.
    */
   preload() {
     console.log("Splash Scene")
+    this.load.image("splashSceneBackground", "./assets/splashSceneImage.png")
   }
 
   /**
@@ -41,6 +43,13 @@
    * @param {object} data - Any data passed via ScenePlugin.add() or ScenePlugin.start().
    */
   create(data) {
+    this.SplashSceneBackgroundImage = this.add.sprite(
+      0,
+      0,
+      "splashSceneBackground"
+    )
+    this.SplashSceneBackgroundImage.x = 1920 / 2
+    this.SplashSceneBackgroundImage.y = 1080 / 2
     // pass
   }
 
@@ -51,8 +60,9 @@
    * @param {number} delta - The delta time in ms since the last frame.
    */
    update(time, delta) {
-    this.scene.switch("titleScene")
-    // pass
+    if (time > 3000) {
+      this.scene.switch("titleScene")
+    }
    }
  }
 
