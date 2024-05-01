@@ -26,8 +26,8 @@ class TitleScene extends Phaser.Scene {
   }
 
   /**
-   * Can be defined on your own Scenes. 
-   * This method is called by the Scene Manager when the scene starts, 
+   * Can be defined on your own Scenes.
+   * This method is called by the Scene Manager when the scene starts,
    *    before preload() and create().
    *  @param {object} data - Any data passed via ScenePlugin.add() or ScenePlugin.start().
    */
@@ -45,20 +45,20 @@ class TitleScene extends Phaser.Scene {
   }
 
   /**
-   * Can be defined on your own Scene. 
+   * Can be defined on your own Scene.
    * Use it to create your game objects.
    * @param {object} data - Any data passed via ScenePlugin.add() or ScenePlugin.start().
    */
   create(data) {
     this.titleSceneBackgroundImage = this.add
-    .sprite(0, 0, "titleSceneBackground")
-    .setScale(2.75)
+      .sprite(0, 0, "titleSceneBackground")
+      
     this.titleSceneBackgroundImage.x = 1920 / 2
     this.titleSceneBackgroundImage.y = 1080 / 2
 
     this.titleSceneText = this.add
-    .text(1920 / 2, 1080 / 2 + 350, "Space Aliens", this.titleSceneTextStyle)
-    .setOrigin(0.5)
+      .text(1920 / 2, 1080 / 2 + 350, "Space Aliens", this.titleSceneTextStyle)
+      .setOrigin(0.5)
   }
 
   /**
@@ -68,7 +68,9 @@ class TitleScene extends Phaser.Scene {
    * @param {number} delta - The delta time in ms since the last frame.
    */
   update(time, delta) {
-    // pass
+    if (time > 6000) {
+      this.scene.switch("menuScene")
+    }
   }
 }
 
