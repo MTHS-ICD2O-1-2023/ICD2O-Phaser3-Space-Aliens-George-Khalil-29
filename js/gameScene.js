@@ -15,6 +15,9 @@ class GameScene extends Phaser.Scene {
    */
   constructor() {
     super({ key: "gameScene"})
+
+    this.background = null 
+    this.ship = null
   }
 
 /**
@@ -33,6 +36,9 @@ class GameScene extends Phaser.Scene {
    */
   preload() {
     console.log("Game Scene")
+
+    this.load.image("startBackground", "./assets/startBackground.png")
+    this.load.image("ship", "./assets/spaceShip.png")
   }
 
   /**
@@ -41,8 +47,11 @@ class GameScene extends Phaser.Scene {
    * @param {object} data - Any data passed via ScenePlugin.add() or ScenePlugin.start().
    */
   create(data) {
-   // pass
-  }
+   this.background = this.add.image(0, 0, "startBackground").setScale(2.0)
+   this.background.setOrigin(0, 0)
+
+   this.ship = this.physics.add.sprite(1920 / 2, 1080 - 100, "ship")
+}
 
   /**
    * Should be overridden by your own Scenes.
